@@ -1,0 +1,14 @@
+//
+
+//
+
+#ifndef _3D_VIEWER_MODEL_OPENGL_RENDERER_LIGHT_SOURCE_LIGHT_SOURCE_H_
+#define _3D_VIEWER_MODEL_OPENGL_RENDERER_LIGHT_SOURCE_LIGHT_SOURCE_H_
+
+namespace s21::OpenGLRenderer {
+
+class LightSource {};
+
+}  // namespace s21::OpenGLRenderer
+
+#endif  // _3D_VIEWER_MODEL_OPENGL_RENDERER_LIGHT_SOURCE_LIGHT_SOURCE_H_

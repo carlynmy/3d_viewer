@@ -1,0 +1,2432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1342</width>
+    <height>727</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>240</width>
+    <height>160</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QOpenGLWidget" name="openGLWidget"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="le_info">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>3000</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QWidget {
+	border: 1px solid #5C07F5;
+	border-radius: 5px;
+	background: rgba(92, 7, 145, 0.2);
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QScrollArea" name="sa_objects_area">
+      <property name="minimumSize">
+       <size>
+        <width>10</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>275</width>
+        <height>16205449</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QScrollArea QWidget {
+	background: rgba(61, 142, 76, 0.05);
+}
+
+QScrollBar:vertical {
+    border: 2px solid grey;
+    background: #32CC99;
+    height: 15px;
+    margin: 0px 20px 0 20px;
+}
+
+QScrollBar::handle:vertical {
+    background: white;
+    min-width: 20px;
+}
+
+QScrollBar::add-line:vertical {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    border: 2px solid grey;
+    background: #32CC99;
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}</string>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>273</width>
+         <height>707</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="s21::WidgetList" name="widget_list" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pb_add_object">
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	background: #3D8E4C;
+    border: 2px solid #3D8E4C;
+	color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	background: rgb(255, 255, 255);
+	border: 2px solid rgb(255, 255, 255);
+	color: #3D8E4C;
+    border-radius: 8px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Добавить объект</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pb_clone_object">
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	background: #3D8E4C;
+    border: 2px solid #3D8E4C;
+	color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	background: rgb(255, 255, 255);
+	border: 2px solid rgb(255, 255, 255);
+	color: #3D8E4C;
+    border-radius: 8px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Клонировать объект</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_position" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+	background: rgba(79, 46, 8, 0.4);
+}</string>
+          </property>
+          <widget class="QLabel" name="label_move_x">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>20</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>X</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_move_z">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>120</y>
+             <width>20</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Z</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_move_y">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>80</y>
+             <width>20</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Y</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QSlider" name="slider_move_x">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>40</y>
+             <width>131</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSlider {
+	background: rgbs(0,0,0,0);
+	border: 0px;
+}
+
+QSlider::groove:horizontal {
+	border: 5px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: rgb(246, 245, 244);
+    border: 1px solid rgb(255, 255, 255);
+    width: 10px;
+    margin: -4px 0; 
+    border-radius: 6px;
+}
+
+QSlider::add-page:qlineargradient {
+	background: rgba(34, 155, 58, 0.8);
+	border: 9px;
+}
+
+QSlider::sub-page {
+	background: #C47214;
+	border: 4px;
+}</string>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_title_position_widget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>81</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string>Позиция</string>
+           </property>
+          </widget>
+          <widget class="QSlider" name="slider_move_z">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>120</y>
+             <width>131</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSlider {
+	background: rgbs(0,0,0,0);
+	border: 0px;
+}
+
+QSlider::groove:horizontal {
+	border: 5px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: rgb(246, 245, 244);
+    border: 1px solid rgb(255, 255, 255);
+    width: 10px;
+    margin: -4px 0; 
+    border-radius: 6px;
+}
+
+QSlider::add-page:qlineargradient {
+	background: rgba(34, 155, 58, 0.8);
+	border: 9px;
+}
+
+QSlider::sub-page {
+	background: #C47214;
+	border: 4px;
+}</string>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QSlider" name="slider_move_y">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>80</y>
+             <width>131</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSlider {
+	background: rgbs(0,0,0,0);
+	border: 0px;
+}
+
+QSlider::groove:horizontal {
+	border: 5px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: rgb(246, 245, 244);
+    border: 1px solid rgb(255, 255, 255);
+    width: 10px;
+    margin: -4px 0; 
+    border-radius: 6px;
+}
+
+QSlider::add-page:qlineargradient {
+	background: rgba(34, 155, 58, 0.8);
+	border: 9px;
+}
+
+QSlider::sub-page {
+	background: #C47214;
+	border: 4px;
+}</string>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_move_y">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>82</y>
+             <width>50</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_move_x">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>42</y>
+             <width>50</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_move_z">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>122</y>
+             <width>50</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Source Code Pro</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="widget_position_titel" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>240</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>240</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+	background: #FF9419;
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+}</string>
+           </property>
+           <widget class="QPushButton" name="pb_widget_position_show_hide">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>40</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background: #FF9419;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	color: #FF9419;
+	background: rgb(255, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </widget>
+          <zorder>widget_position_titel</zorder>
+          <zorder>label_move_x</zorder>
+          <zorder>label_move_z</zorder>
+          <zorder>label_move_y</zorder>
+          <zorder>slider_move_x</zorder>
+          <zorder>label_title_position_widget</zorder>
+          <zorder>slider_move_z</zorder>
+          <zorder>slider_move_y</zorder>
+          <zorder>le_move_y</zorder>
+          <zorder>le_move_x</zorder>
+          <zorder>le_move_z</zorder>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_rotation" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+	background: rgba(79, 46, 8, 0.4);
+}</string>
+          </property>
+          <widget class="QLabel" name="label_rotation_x">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>20</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>X</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_rotation_z">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>120</y>
+             <width>20</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Z</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_rotation_y">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>80</y>
+             <width>20</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Y</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QSlider" name="slider_rotation_x">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>40</y>
+             <width>131</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSlider {
+	background: rgbs(0,0,0,0);
+	border: 0px;
+}
+
+QSlider::groove:horizontal {
+	border: 5px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: rgb(246, 245, 244);
+    border: 1px solid rgb(255, 255, 255);
+    width: 10px;
+    margin: -4px 0; 
+    border-radius: 6px;
+}
+
+QSlider::add-page:qlineargradient {
+	background: rgba(34, 155, 58, 0.8);
+	border: 9px;
+}
+
+QSlider::sub-page {
+	background: #C47214;
+	border: 4px;
+}</string>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_title_rotation_widget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>81</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string>Вращение</string>
+           </property>
+          </widget>
+          <widget class="QSlider" name="slider_rotation_z">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>120</y>
+             <width>131</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>240</width>
+             <height>600</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSlider {
+	background: rgbs(0,0,0,0);
+	border: 0px;
+}
+
+QSlider::groove:horizontal {
+	border: 5px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: rgb(246, 245, 244);
+    border: 1px solid rgb(255, 255, 255);
+    width: 10px;
+    margin: -4px 0; 
+    border-radius: 6px;
+}
+
+QSlider::add-page:qlineargradient {
+	background: rgba(34, 155, 58, 0.8);
+	border: 9px;
+}
+
+QSlider::sub-page {
+	background: #C47214;
+	border: 4px;
+}</string>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QSlider" name="slider_rotation_y">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>80</y>
+             <width>131</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSlider {
+	background: rgbs(0,0,0,0);
+	border: 0px;
+}
+
+QSlider::groove:horizontal {
+	border: 5px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: rgb(246, 245, 244);
+    border: 1px solid rgb(255, 255, 255);
+    width: 10px;
+    margin: -4px 0; 
+    border-radius: 6px;
+}
+
+QSlider::add-page:qlineargradient {
+	background: rgba(34, 155, 58, 0.8);
+	border: 9px;
+}
+
+QSlider::sub-page {
+	background: #C47214;
+	border: 4px;
+}</string>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_rotation_y">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>82</y>
+             <width>50</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_rotation_x">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>42</y>
+             <width>50</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_rotation_z">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>122</y>
+             <width>50</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Source Code Pro</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="widget_rotation_titel" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>240</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+	background: #FF9419;
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+}</string>
+           </property>
+           <widget class="QPushButton" name="pb_widget_rotation_show_hide">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>40</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background: #FF9419;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	color: #FF9419;
+	background: rgb(255, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </widget>
+          <zorder>widget_rotation_titel</zorder>
+          <zorder>label_rotation_x</zorder>
+          <zorder>label_rotation_z</zorder>
+          <zorder>label_rotation_y</zorder>
+          <zorder>slider_rotation_x</zorder>
+          <zorder>label_title_rotation_widget</zorder>
+          <zorder>slider_rotation_z</zorder>
+          <zorder>slider_rotation_y</zorder>
+          <zorder>le_rotation_y</zorder>
+          <zorder>le_rotation_x</zorder>
+          <zorder>le_rotation_z</zorder>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_scale" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>240</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+	background: rgba(79, 46, 8, 0.4);
+}</string>
+          </property>
+          <widget class="QSlider" name="slider_scale">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>40</y>
+             <width>151</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QSlider {
+	background: rgbs(0,0,0,0);
+	border: 0px;
+}
+
+QSlider::groove:horizontal {
+	border: 5px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: rgb(246, 245, 244);
+    border: 1px solid rgb(255, 255, 255);
+    width: 10px;
+    margin: -4px 0; 
+    border-radius: 6px;
+}
+
+QSlider::add-page:qlineargradient {
+	background: rgba(34, 155, 58, 0.8);
+	border: 9px;
+}
+
+QSlider::sub-page {
+	background: #C47214;
+	border: 4px;
+}</string>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_title_scale_widget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>81</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string>Масштаб</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_scale">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>42</y>
+             <width>50</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="widget_scale_titel" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>240</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+	background: #FF9419;
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+}</string>
+           </property>
+           <widget class="QPushButton" name="pb_widget_scale_show_hide">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>40</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background: #FF9419;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	color: #FF9419;
+	background: rgb(255, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </widget>
+          <zorder>widget_scale_titel</zorder>
+          <zorder>slider_scale</zorder>
+          <zorder>label_title_scale_widget</zorder>
+          <zorder>le_scale</zorder>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_lines" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+	background: rgba(79, 46, 8, 0.4);
+}</string>
+          </property>
+          <widget class="QLabel" name="label_title_lines_widget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>81</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>81</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string>Линии</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="widget_lines_titel" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>240</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+	background: #FF9419;
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+}</string>
+           </property>
+           <widget class="QPushButton" name="pb_widget_lines_show_hide">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>40</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background: #FF9419;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	color: #FF9419;
+	background: rgb(255, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QRadioButton" name="rb_solid_line">
+           <property name="geometry">
+            <rect>
+             <x>15</x>
+             <y>40</y>
+             <width>98</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton {
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton::indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 6px;
+	border: 2px solid rgb(192, 191, 188);
+}
+
+
+QRadioButton::indicator:unchecked:hover {
+    border-radius: 6px;
+	border: 2px solid #4AAA5C;
+	background-color: #4AAA5C;
+}
+
+QRadioButton::indicator::checked {
+    border-radius: 6px;
+	border: 2px solid #C47214;
+	background-color: #C47214;
+}</string>
+           </property>
+           <property name="text">
+            <string>Сплошная</string>
+           </property>
+          </widget>
+          <widget class="QRadioButton" name="rb_dotted_line">
+           <property name="geometry">
+            <rect>
+             <x>124</x>
+             <y>40</y>
+             <width>103</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton {
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton::indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 6px;
+	border: 2px solid rgb(192, 191, 188);
+}
+
+
+QRadioButton::indicator:unchecked:hover {
+    border-radius: 6px;
+	border: 2px solid #4AAA5C;
+	background-color: #4AAA5C;
+}
+
+QRadioButton::indicator::checked {
+    border-radius: 6px;
+	border: 2px solid #C47214;
+	background-color: #C47214;
+}</string>
+           </property>
+           <property name="text">
+            <string>Пунктирная</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_color">
+           <property name="geometry">
+            <rect>
+             <x>15</x>
+             <y>80</y>
+             <width>80</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Цвет</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_line_thickness">
+           <property name="geometry">
+            <rect>
+             <x>15</x>
+             <y>114</y>
+             <width>80</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Толщина</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_line_thickness">
+           <property name="geometry">
+            <rect>
+             <x>124</x>
+             <y>114</y>
+             <width>102</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pb_change_lines_color">
+           <property name="geometry">
+            <rect>
+             <x>124</x>
+             <y>80</y>
+             <width>102</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	border: 5px solid #FF9419;
+	border-radius: 3px;
+    background-color: #FF9419;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <zorder>widget_lines_titel</zorder>
+          <zorder>label_title_lines_widget</zorder>
+          <zorder>rb_solid_line</zorder>
+          <zorder>rb_dotted_line</zorder>
+          <zorder>label_line_thickness</zorder>
+          <zorder>le_line_thickness</zorder>
+          <zorder>pb_change_lines_color</zorder>
+          <zorder>label_color</zorder>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_vertex" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>170</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+	background: rgba(79, 46, 8, 0.4);
+}</string>
+          </property>
+          <widget class="QLabel" name="label_title_vertex_widget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>81</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>81</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string>Вершины</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="widget_vertex_titel" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>240</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+	background: #FF9419;
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+}</string>
+           </property>
+           <widget class="QPushButton" name="pb_widget_vertex_show_hide">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>40</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background: #FF9419;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	color: #FF9419;
+	background: rgb(255, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_color_vertex">
+           <property name="geometry">
+            <rect>
+             <x>15</x>
+             <y>90</y>
+             <width>80</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Цвет</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_vertex_size">
+           <property name="geometry">
+            <rect>
+             <x>15</x>
+             <y>124</y>
+             <width>80</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Размер</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="le_vertex_size">
+           <property name="geometry">
+            <rect>
+             <x>124</x>
+             <y>124</y>
+             <width>102</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+	background: rgba(0,0,0,0);
+	border: 1px solid #8A500E;
+	border-radius: 3px;
+}</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pb_change_vertex_color">
+           <property name="geometry">
+            <rect>
+             <x>124</x>
+             <y>90</y>
+             <width>102</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	border: 5px solid #FF9419;
+	border-radius: 3px;
+    background-color: #FF9419;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="com_box_type_vertex">
+           <property name="geometry">
+            <rect>
+             <x>15</x>
+             <y>46</y>
+             <width>210</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QComboBox {
+	border: 1px solid #FF9419;
+	border-radius: 3px;
+	background: rgba(79, 46, 8, 1);
+}</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Отсутствуют</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Квадратные</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Круглые</string>
+            </property>
+           </item>
+          </widget>
+          <zorder>widget_vertex_titel</zorder>
+          <zorder>label_title_vertex_widget</zorder>
+          <zorder>label_color_vertex</zorder>
+          <zorder>label_vertex_size</zorder>
+          <zorder>le_vertex_size</zorder>
+          <zorder>pb_change_vertex_color</zorder>
+          <zorder>com_box_type_vertex</zorder>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_texture" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>130</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+	background: rgba(79, 46, 8, 0.4);
+}</string>
+          </property>
+          <widget class="QLabel" name="label_title_texture_widget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>81</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string>Текстура</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="widget_texture_titel" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>240</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>240</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+	background: #FF9419;
+	border: 1px solid #FF9419;
+	border-radius: 10px;
+}</string>
+           </property>
+           <widget class="QPushButton" name="pb_widget_texture_show_hide">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>40</width>
+              <height>30</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background: #FF9419;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	color: #FF9419;
+	background: rgb(255, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QPushButton" name="pb_add_texture">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>80</y>
+             <width>214</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	background: #3D8E4C;
+    border: 2px solid #3D8E4C;
+	color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	background: rgb(255, 255, 255);
+	border: 2px solid rgb(255, 255, 255);
+	color: #3D8E4C;
+    border-radius: 8px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Нанести текстуру</string>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="com_box_polygon_mod_type">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>214</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QComboBox {
+	border: 1px solid #FF9419;
+	border-radius: 3px;
+	background: rgba(79, 46, 8, 1);
+}</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Каркасная модель</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Текстурная модель</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Полигональная модель</string>
+            </property>
+           </item>
+          </widget>
+          <zorder>widget_texture_titel</zorder>
+          <zorder>label_title_texture_widget</zorder>
+          <zorder>pb_add_texture</zorder>
+          <zorder>com_box_polygon_mod_type</zorder>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_spec" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>240</width>
+            <height>376</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>240</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	border: 1px solid #5C07F5;
+	border-radius: 10px;
+	background: rgba(92, 7, 145, 0.2);
+}</string>
+          </property>
+          <widget class="QLabel" name="label_projection">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>50</y>
+             <width>78</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Проекция</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_title_spec_widget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>111</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Cantarell</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Специальные
+возможности</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="widget_spec_titel" native="true">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>240</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>240</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>240</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+	background: #5C07F5;
+	border: 1px solid #5C07F5;
+	border-radius: 10px;
+}</string>
+           </property>
+           <widget class="QPushButton" name="pb_widget_spec_show_hide">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>40</width>
+              <height>40</height>
+             </rect>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background: #5C07F5;
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 8px;
+}
+
+QPushButton:pressed {
+	background: rgb(255, 255, 255);
+	color: #5C07F5;
+}</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QPushButton" name="pb_change_projection">
+           <property name="geometry">
+            <rect>
+             <x>124</x>
+             <y>50</y>
+             <width>107</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	background: #3D8E4C;
+    border: 2px solid #3D8E4C;
+	color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	background: rgb(255, 255, 255);
+	border: 2px solid rgb(255, 255, 255);
+	color: #3D8E4C;
+    border-radius: 8px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Параллельная</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pb_change_color_back">
+           <property name="geometry">
+            <rect>
+             <x>124</x>
+             <y>90</y>
+             <width>107</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	border: 5px solid #6117E1;
+	border-radius: 7px;
+    background-color: #6117E1;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_b_color">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>90</y>
+             <width>82</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Цвет фона</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pb_save_jpeg">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>270</y>
+             <width>107</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	background: #3D8E4C;
+    border: 2px solid #3D8E4C;
+	color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	background: rgb(255, 255, 255);
+	border: 2px solid rgb(255, 255, 255);
+	color: #3D8E4C;
+    border-radius: 8px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Сохранить
+.jpeg</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pb_save_bmp">
+           <property name="geometry">
+            <rect>
+             <x>125</x>
+             <y>270</y>
+             <width>107</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	background: #3D8E4C;
+    border: 2px solid #3D8E4C;
+	color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	background: rgb(255, 255, 255);
+	border: 2px solid rgb(255, 255, 255);
+	color: #3D8E4C;
+    border-radius: 8px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Сохранить
+.bmp</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pb_save_gif">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>320</y>
+             <width>107</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	background: #3D8E4C;
+    border: 2px solid #3D8E4C;
+	color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+QPushButton:pressed {
+	background: rgb(255, 255, 255);
+	border: 2px solid rgb(255, 255, 255);
+	color: #3D8E4C;
+    border-radius: 8px;
+}</string>
+           </property>
+           <property name="text">
+            <string>Сохранить
+.gif</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="cb_floor">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>130</y>
+             <width>92</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+	color: rgb(255, 255, 255);
+}
+
+QCheckBox::indicator {
+    width: 12px;
+    height: 12px;
+	border: 1px solid #6117E1;
+	border-radius: 2px;
+	background: rgba(92, 7, 145, 0.2);
+}
+
+ QCheckBox::indicator:checked {
+     background:  #6117E1;
+ }
+
+ QCheckBox::indicator:unchecked {
+     background: rgba(92, 7, 145, 0.2);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Пол</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="cb_axes">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>190</y>
+             <width>92</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+	color: rgb(255, 255, 255);
+}
+
+QCheckBox::indicator {
+    width: 12px;
+    height: 12px;
+	border: 1px solid #6117E1;
+	border-radius: 2px;
+	background: rgba(92, 7, 145, 0.2);
+}
+
+ QCheckBox::indicator:checked {
+     background:  #6117E1;
+ }
+
+ QCheckBox::indicator:unchecked {
+     background: rgba(92, 7, 145, 0.2);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Оси</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="cb_file_info">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>160</y>
+             <width>191</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+	color: rgb(255, 255, 255);
+}
+
+QCheckBox::indicator {
+    width: 12px;
+    height: 12px;
+	border: 1px solid #6117E1;
+	border-radius: 2px;
+	background: rgba(92, 7, 145, 0.2);
+}
+
+ QCheckBox::indicator:checked {
+     background:  #6117E1;
+ }
+
+ QCheckBox::indicator:unchecked {
+     background: rgba(92, 7, 145, 0.2);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Информация о файле</string>
+           </property>
+          </widget>
+          <widget class="QCheckBox" name="cb_use_prev_obj_settings">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>220</y>
+             <width>221</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+	background: rgbs(0,0,0,0);
+	border: 0 px;
+	color: rgb(255, 255, 255);
+}
+
+QCheckBox::indicator {
+    width: 12px;
+    height: 12px;
+	border: 1px solid #6117E1;
+	border-radius: 2px;
+	background: rgba(92, 7, 145, 0.2);
+}
+
+ QCheckBox::indicator:checked {
+     background:  #6117E1;
+ }
+
+ QCheckBox::indicator:unchecked {
+     background: rgba(92, 7, 145, 0.2);
+ }</string>
+           </property>
+           <property name="text">
+            <string>Использовать настройки
+объекта</string>
+           </property>
+          </widget>
+          <zorder>widget_spec_titel</zorder>
+          <zorder>label_projection</zorder>
+          <zorder>label_title_spec_widget</zorder>
+          <zorder>pb_change_projection</zorder>
+          <zorder>pb_change_color_back</zorder>
+          <zorder>label_b_color</zorder>
+          <zorder>pb_save_jpeg</zorder>
+          <zorder>pb_save_bmp</zorder>
+          <zorder>pb_save_gif</zorder>
+          <zorder>cb_floor</zorder>
+          <zorder>cb_axes</zorder>
+          <zorder>cb_file_info</zorder>
+          <zorder>cb_use_prev_obj_settings</zorder>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>s21::WidgetList</class>
+   <extends>QWidget</extends>
+   <header>widgetlist.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

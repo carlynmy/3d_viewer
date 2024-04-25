@@ -1,0 +1,6 @@
+[submodule "src/3d_party/stb"]
+	path = src/3d_party/stb
+	url = https://github.com/nothings/stb.git
+[submodule "src/3d_party/gif-h"]
+	path = src/3d_party/gif-h
+	url = https://github.com/charlietangora/gif-h.git
